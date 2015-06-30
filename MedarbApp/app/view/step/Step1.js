@@ -2255,15 +2255,15 @@ Ext.define('MedarbApp.view.step.Step1', {
         this.xml += '</record>';
 
         if (msg !== '') {
-      /*      Ext.Msg.show({
+           Ext.Msg.show({
                 title: 'Felmeddelande',
                 msg: 'Totalen är fel på följande frågor: ' + msg,
                 icon: Ext.Msg.ERROR,
                 buttons: Ext.Msg.OK
-            });*/
-            this.fireEvent('navigate', this, incr); // TODO: remove
+            });
+//            this.fireEvent('navigate', this, incr); // TODO: remove
         } else {
-            console.log('sucess 1');
+            console.log('success 1');
             this.fireEvent('navigate', this, incr);
         }
     }

@@ -61,28 +61,28 @@ Ext.define('MedarbApp.view.main.Main', {
             id: 'card-0',
             xtype: 'step0',
             reference: 'step0'/*,
-            listeners: {
-                navigate: 'doCardNavigation',
-                scope: 'controller'
-            }*/
+         listeners: {
+         navigate: 'doCardNavigation',
+         scope: 'controller'
+         }*/
         },
         {
             id: 'card-1',
             xtype: 'step1',
             reference: 'step1'/*,
-            listeners: {
-                navigate: 'doCardNavigation',
-                scope: 'controller'
-            }*/
+         listeners: {
+         navigate: 'doCardNavigation',
+         scope: 'controller'
+         }*/
         },
         {
             id: 'card-2',
             xtype: 'step2',
             reference: 'step2'/*,
-            listeners: {
-                navigate: 'doCardNavigation',
-                scope: 'controller'
-            }*/
+         listeners: {
+         navigate: 'doCardNavigation',
+         scope: 'controller'
+         }*/
         },
         {
             id: 'card-3',
@@ -113,23 +113,38 @@ Ext.define('MedarbApp.view.main.Main', {
         var i = l.activeItem.id.split('card-')[1];
         switch (i) {
             case '0':
-                this.fireEvent('verifyUser',this);
+                if (incr === 1) {
+                    me.fireEvent('verifyUser', me);
+                }
                 break;
             case '1':
-                this.down('[xtype=step1]').on('navigate',this.doCardNavigation,this);
-                me.down('[xtype=step1]').validateFields(incr);
+                this.down('[xtype=step1]').on('navigate', me.doCardNavigation, me);
+                if (incr === 1) {
+                    me.down('[xtype=step1]').validateFields(incr);
+                } else {
+                    me.doCardNavigation(me.down('[xtype=step1]'), incr);
+                }
                 break;
             case '2':
-                this.down('[xtype=step2]').on('navigate',this.doCardNavigation,this);
-                me.down('[xtype=step2]').validateFields(incr);
+                this.down('[xtype=step2]').on('navigate', me.doCardNavigation, me);
+                if (incr === 1) {
+                    me.down('[xtype=step2]').validateFields(incr);
+                } else {
+                    me.doCardNavigation(me.down('[xtype=step2]'), incr);
+                }
                 break;
             case '3':
-                me.down('[xtype=step3]').validateFields(incr);
+                if (incr === 1) {
+                    me.down('[xtype=step3]').validateFields(incr);
+                } else {
+                    me.doCardNavigation(me.down('[xtype=step3]'), incr);
+                }
                 break;
-            case '4':
-                break;
+            case
+            '4': break;
         }
-    },
+    }
+    ,
 
     doCardNavigation: function (card, incr) {
         var me = this;

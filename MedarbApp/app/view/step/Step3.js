@@ -370,7 +370,7 @@ Ext.define('MedarbApp.view.step.Step3', {
             var fieldNames = form.getFields().items;
             this.xml = '<record>';
             for (var i = 0; i < fieldNames.length; i++) {
-                if (fieldNames[i].xtype === 'numberfield' && question <= 36) {
+                if (fieldNames[i].xtype === 'numberfield') {
                     // verify total and that 3 and 4 is set.
                     if (count === 4 && (total !== 7 || !threefound || !fourfound)) {
                         if (msg !== '') {
@@ -419,7 +419,13 @@ Ext.define('MedarbApp.view.step.Step3', {
                 }
             }
             this.xml += '</record>';
-
+            if (count === 4 && (total !== 7 || !threefound || !fourfound)) {
+                if (msg !== '') {
+                    msg += ', ' + question;
+                } else {
+                    msg += question;
+                }
+            }
             if (msg !== '') {
                 Ext.Msg.show({
                     title: 'Felmeddelande',
@@ -427,10 +433,9 @@ Ext.define('MedarbApp.view.step.Step3', {
                     icon: Ext.Msg.ERROR,
                     buttons: Ext.Msg.OK
                 });
-                console.log(total);
-                this.fireEvent('sendResult', this, incr); // TODO: remove
+//                this.fireEvent('sendResult', this, incr); // TODO: remove
             } else {
-                console.log('sucess 3');
+                console.log('success 3');
                 this.fireEvent('sendResult', this, incr);
             }
         }

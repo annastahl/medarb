@@ -976,19 +976,27 @@ Ext.define('MedarbApp.view.step.Step2', {
         }
 
         this.xml += '</record>';
+        // 2 and 3 is only allowed on once per question
+        if ((value === 2 && twofound === true) || value === 3 && threefound === true) {
+            if (msg !== '') {
+                msg += ', ' + question;
+            } else {
+                msg += question;
+            }
+        }
 
 
         if (msg !== '') {
-         /*   Ext.Msg.show({
+            Ext.Msg.show({
                 title: 'Felmeddelande',
                 msg: 'Totalen är fel på följande frågor: ' + msg,
                 icon: Ext.Msg.ERROR,
                 buttons: Ext.Msg.OK
             });
-            */
-            this.fireEvent('navigate', this, incr); // TODO: remove
+
+         //   this.fireEvent('navigate', this, incr); // TODO: remove
         } else {
-            console.log('sucess 2');
+            console.log('success 2');
             this.fireEvent('navigate', this, incr);
         }
     }
