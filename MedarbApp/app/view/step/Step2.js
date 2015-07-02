@@ -923,68 +923,76 @@ Ext.define('MedarbApp.view.step.Step2', {
      */
     validateFields: function (incr) {
         var form = this.down('form').getForm();
-        var total = 0, msg = '', question = 29, count = 0, threefound = false, twofound = false, value = 0;
+
+        var total = 0, msg = '', question = 29, count = 1, threefound = false, twofound = false;
         var fieldNames = form.getFields().items;
-        this.xml = '<record>';
+        this.xml = '';
+        var result = [];
         for (var i = 0; i < fieldNames.length; i++) {
-            // numberfield is a question field
             if (fieldNames[i].xtype === 'numberfield') {
-                if (count === 4 && ((total !== 5) || !threefound || !twofound)) {
-                    if (msg !== '') {
-                        msg += ', ' + question;
+                result[count] = form.findField(fieldNames[i].name).value;
+                count++;
+            }
+        }
+        count = 1;
+        for (var i = 1; i < result.length; i++) {
+            total += result[i];
+            if (result[i] === 2) {
+                twofound = true;
+            }
+            if (result[i] === 3) {
+                threefound = true;
+            }
+
+            switch (count) {
+                case 1:
+                    if (this.xml !== '') {
+                        this.xml += '</record><record>';
                     } else {
-                        msg += question;
+                        this.xml = '<record>';
                     }
-                }
-                if (count === 4) {
                     this.xml += '<question>' + question + '</question>';
-                    this.xml += '</record><record>';
+                    if (result[i] && result[i] !== '' && result[i] !== null) {
+                        this.xml += '<alt1>' + result[i] + '</alt1>';
+                    }
+                    count++;
+                    break;
+                case 2:
+                    if (result[i] && result[i] !== '' && result[i] !== null) {
+
+                        this.xml += '<alt2>' + result[i] + '</alt2>';
+                    }
+                    count++;
+                    break;
+                case 3:
+                    if (result[i] && result[i] !== '' && result[i] !== null) {
+
+                        this.xml += '<alt3>' + result[i] + '</alt3>';
+                    }
+                    count++;
+                    break;
+                case 4:
+                    if (result[i] && result[i] !== '' && result[i] !== null) {
+                        this.xml += '<alt4>' + result[i] + '</alt4>';
+                    }
+                    // verify total and that 3 and 4 is set.
+                    console.log(question + ' tot ' + total);
+                    if ((total !== 5) || !threefound || !twofound) {
+                        if (msg !== '') {
+                            msg += ', ' + question;
+                        } else {
+                            msg += question;
+                        }
+                    }
                     question++;
-                    count = 0;
-                    total = 0;
+                    count = 1;
                     twofound = false;
                     threefound = false;
-
-                }
-
-                value = form.findField(fieldNames[i].name).value;
-                if (value !== '' && value !== null) {
-                    this.xml += '<alt' + count + '>' + value + '</alt' + count + '>';
-                } else {
-                    this.xml += '<alt' + count + '>0</alt' + count + '>';
-                }
-
-                total += value;
-                // 2 and 3 is only allowed on once per question
-                if ((value === 2 && twofound === true) || value === 3 && threefound === true) {
-                    if (msg !== '') {
-                        msg += ', ' + question;
-                    } else {
-                        msg += question;
-                    }
-                }
-
-                if (value === 2) {
-                    twofound= true;
-                }
-                if (value === 3) {
-                    threefound = true;
-                }
-                count++;
-
+                    total = 0;
+                    break;
             }
         }
-
         this.xml += '</record>';
-        // 2 and 3 is only allowed on once per question
-        if ((value === 2 && twofound === true) || value === 3 && threefound === true) {
-            if (msg !== '') {
-                msg += ', ' + question;
-            } else {
-                msg += question;
-            }
-        }
-
 
         if (msg !== '') {
             Ext.Msg.show({
@@ -993,12 +1001,11 @@ Ext.define('MedarbApp.view.step.Step2', {
                 icon: Ext.Msg.ERROR,
                 buttons: Ext.Msg.OK
             });
-
-         //   this.fireEvent('navigate', this, incr); // TODO: remove
+            this.fireEvent('navigate', this, incr); // TODO: remove
         } else {
-            console.log('success 2');
+            console.log('success 1');
             this.fireEvent('navigate', this, incr);
         }
-    }
+     }
 })
 ;

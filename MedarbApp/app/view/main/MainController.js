@@ -15,6 +15,9 @@ Ext.define('MedarbApp.view.main.MainController', {
     alias: 'controller.main',
     usrId: null,
 
+    // for test purposes
+//    validXml: '<set><record><question>1</question><alt1>3</alt1><alt2>1</alt2></record><record><question>2</question><alt1>3</alt1><alt2>1</alt2></record><record><question>3</question><alt1>3</alt1><alt2>1</alt2></record><record><question>4</question><alt1>3</alt1><alt2>1</alt2></record><record><question>5</question><alt1>4</alt1><alt2>0</alt2></record><record><question>6</question><alt1>3</alt1><alt2>1</alt2></record><record><question>7</question><alt1>3</alt1><alt2>1</alt2></record><record><question>8</question><alt1>3</alt1><alt2>1</alt2></record><record><question>9</question><alt1>3</alt1><alt2>1</alt2></record><record><question>10</question><alt1>3</alt1><alt2>1</alt2></record><record><question>11</question><alt1>3</alt1><alt2>1</alt2></record><record><question>12</question><alt1>3</alt1><alt2>1</alt2></record><record><question>13</question><alt1>3</alt1><alt2>1</alt2></record><record><question>14</question><alt1>3</alt1><alt2>1</alt2></record><record><question>15</question><alt1>3</alt1><alt2>1</alt2></record><record><question>16</question><alt1>3</alt1><alt2>1</alt2></record><record><question>17</question><alt1>3</alt1><alt2>1</alt2></record><record><question>18</question><alt1>3</alt1><alt2>1</alt2></record><record><question>19</question><alt1>3</alt1><alt2>1</alt2></record><record><question>20</question><alt1>3</alt1><alt2>1</alt2></record><record><question>21</question><alt1>3</alt1><alt2>1</alt2></record><record><question>22</question><alt1>3</alt1><alt2>1</alt2></record><record><question>23</question><alt1>3</alt1><alt2>1</alt2></record><record><question>24</question><alt1>3</alt1><alt2>1</alt2></record><record><question>25</question><alt1>3</alt1><alt2>1</alt2></record><record><question>26</question><alt1>3</alt1><alt2>1</alt2></record><record><question>27</question><alt1>3</alt1><alt2>1</alt2></record><record><question>28</question><alt1>3</alt1><alt2>1</alt2></record></set><set><record><alt0>3</alt0><alt1>2</alt1><alt2>0</alt2><alt3>0</alt3><question>29</question></record><record><alt0>2</alt0><alt1>0</alt1><alt2>3</alt2><alt3>0</alt3><question>30</question></record><record><alt0>0</alt0><alt1>3</alt1><alt2>2</alt2><alt3>0</alt3><question>31</question></record><record><alt0>3</alt0><alt1>0</alt1><alt2>0</alt2><alt3>2</alt3><question>32</question></record><record><alt0>0</alt0><alt1>3</alt1><alt2>0</alt2><alt3>2</alt3><question>33</question></record><record><alt0>0</alt0><alt1>3</alt1><alt2>0</alt2><alt3>2</alt3></record></set><set><record><alt0>4</alt0><alt1>3</alt1><alt2>0</alt2><alt3>0</alt3><question>35</question></record><record><alt0>0</alt0><alt1>0</alt1><alt2>3</alt2><alt3>4</alt3></record></set>',
+
     onVerifyUser: function () {
         var me = this;
         me.usrId = me.getUrlVars()["usr"];
@@ -24,7 +27,7 @@ Ext.define('MedarbApp.view.main.MainController', {
             params: {
                 _method: 'validate',
                 _format: 'json',
-                user: me.usrId
+                usr: me.usrId
             },
             scope: this,
             success: function (response, options) {
@@ -58,9 +61,10 @@ Ext.define('MedarbApp.view.main.MainController', {
         var xml1 = this.lookupReference('step1').xml;
         var xml2 = this.lookupReference('step2').xml;
         var xml3 = this.lookupReference('step3').xml;
-        xmlTotal = '<set>' + xml1 + '</set>';
-        xmlTotal += '<set>' + xml2 + '</set>';
-        xmlTotal += '<set>' + xml3 + '</set>';
+        //xmlTotal = '<set>' + xml1 + '</set>';
+        //xmlTotal += '<set>' + xml2 + '</set>';
+        //xmlTotal += '<set>' + xml3 + '</set>';
+        xmlTotal = xml1 + xml2 + xml3;
 
         //   me.doCardNavigation(null,1);
         Ext.Ajax.request({
@@ -68,8 +72,8 @@ Ext.define('MedarbApp.view.main.MainController', {
             method: 'post',
             params: {
                 _method: 'create',
-                _format: 'xml',
-                user: me.usrId,
+                _format: 'json',
+                usr: me.usrId,
                 xml: xmlTotal
             },
             scope: this,
@@ -107,5 +111,4 @@ Ext.define('MedarbApp.view.main.MainController', {
         me.getView().down('#card-prev').setDisabled(next === 4);
         me.getView().down('#card-next').setDisabled(next === 4);
     }
-})
-;
+});

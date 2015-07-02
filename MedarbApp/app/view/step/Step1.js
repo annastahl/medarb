@@ -2212,59 +2212,70 @@ Ext.define('MedarbApp.view.step.Step1', {
 
     validateFields: function (incr) {
         var form = this.down('form').getForm();
-        var total = 0, msg = '', question =1, count = 0, value = 0, mod = 0;
+        var total = 0, msg = '', question = 0, count = 0, value = 0, mod = 0;
         var fieldNames = form.getFields().items;
         this.xml = '';
+        var result = [];
         for (var i = 0; i < fieldNames.length; i++) {
             if (fieldNames[i].xtype === 'numberfield') {
-                mod = count % 2;
-                if (mod === 0) {
+                result[count] = form.findField(fieldNames[i].name).value;
+                count++;
+            }
+        }
+        count = 1;
+        for (var i = 0; i < result.length; i++) {
+            /* value 2 is not allow, set total to higher than 4 which is the max total. */
+            if (result[i] === 2) {
+                total += 10;
+            } else {
+                total += result[i];
+            }
+            switch (count) {
+                case 1:
                     if (this.xml !== '') {
                         this.xml += '</record><record>';
                     } else {
                         this.xml = '<record>';
                     }
-                    console.log(question);
                     this.xml += '<question>' + question + '</question>';
-                    total = 0;
-                    question++;
-                }
-                value = form.findField(fieldNames[i].name).value;
-                if (value !== '' && value !== null) {
-                    this.xml += '<alt' +(mod+1) +'>' + value + '</alt' +(mod+1) +'>';
-                } else {
-                    this.xml += '<alt' +(mod+1) +'>0</alt' +(mod+1) +'>';
-                }
-                /* value 2 is not allow, set total to higher than 4 which is the max total. */
-                if (value === 2) {
-                    total += 10;
-                } else {
-                    total += value;
-                }
-                if (count !== 0 && mod !== 0 && total !== 4) {
-                    if (msg !== '') {
-                        msg += ', ' + (question-1);
-                    } else {
-                        msg += (question-1);
-                    }
 
-                }
-                count++;
+                    if (result[i] && result[i] !== '' && result[i] !== null) {
+                        this.xml += '<alt1>' + result[i] + '</alt1>';
+                    }
+                    count++;
+                    question++;
+                    break;
+                case 2:
+                    if (result[i] && result[i] !== '' && result[i] !== null) {
+                        this.xml += '<alt2>' + result[i] + '</alt2>';
+                    }
+                    console.log(question + ' tot ' + total);
+                    if (total !== 4) {
+                        if (msg !== '') {
+                            msg += ', ' + question;
+                        } else {
+                            msg += question;
+                        }
+                    }
+                    count = 1;
+                    total = 0;
+                    break;
             }
         }
         this.xml += '</record>';
 
         if (msg !== '') {
-           Ext.Msg.show({
+            Ext.Msg.show({
                 title: 'Felmeddelande',
                 msg: 'Totalen är fel på följande frågor: ' + msg,
                 icon: Ext.Msg.ERROR,
                 buttons: Ext.Msg.OK
             });
-//            this.fireEvent('navigate', this, incr); // TODO: remove
+            this.fireEvent('navigate', this, incr); // TODO: remove
         } else {
             console.log('success 1');
             this.fireEvent('navigate', this, incr);
         }
     }
-});
+})
+;
