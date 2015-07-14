@@ -443,7 +443,6 @@ Ext.define('MedarbApp.view.step.Step3', {
                     icon: Ext.Msg.ERROR,
                     buttons: Ext.Msg.OK
                 });
-//                this.fireEvent('sendResult', this, incr); // TODO: remove
             } else {
                 console.log('success 3');
                 this.fireEvent('sendResult', this, incr);

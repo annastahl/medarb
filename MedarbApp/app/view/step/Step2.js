@@ -1001,7 +1001,6 @@ Ext.define('MedarbApp.view.step.Step2', {
                 icon: Ext.Msg.ERROR,
                 buttons: Ext.Msg.OK
             });
-            this.fireEvent('navigate', this, incr); // TODO: remove
         } else {
             console.log('success 1');
             this.fireEvent('navigate', this, incr);

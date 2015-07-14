@@ -1948,7 +1948,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag känner mig fångad i fast rutiner'
+                            value: 'a) Jag känner mig fångad i fasta rutiner'
                         }
                     ]
                 },
@@ -2271,7 +2271,6 @@ Ext.define('MedarbApp.view.step.Step1', {
                 icon: Ext.Msg.ERROR,
                 buttons: Ext.Msg.OK
             });
-            this.fireEvent('navigate', this, incr); // TODO: remove
         } else {
             console.log('success 1');
             this.fireEvent('navigate', this, incr);

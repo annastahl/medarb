@@ -61,12 +61,8 @@ Ext.define('MedarbApp.view.main.MainController', {
         var xml1 = this.lookupReference('step1').xml;
         var xml2 = this.lookupReference('step2').xml;
         var xml3 = this.lookupReference('step3').xml;
-        //xmlTotal = '<set>' + xml1 + '</set>';
-        //xmlTotal += '<set>' + xml2 + '</set>';
-        //xmlTotal += '<set>' + xml3 + '</set>';
         xmlTotal = xml1 + xml2 + xml3;
 
-        //   me.doCardNavigation(null,1);
         Ext.Ajax.request({
             url: '/SOA?service=SPT1000',
             method: 'post',
