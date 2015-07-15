@@ -36,6 +36,8 @@ Ext.define('MedarbApp.view.main.Main', {
     defaultListenerScope: true,
     listeners: {
         verifyUser: 'onVerifyUser',
+        navigateForward: 'onNavigateForward',
+        navigateBackward: 'onNavigateBackward',
         scope: 'controller'
     },
 
@@ -60,29 +62,25 @@ Ext.define('MedarbApp.view.main.Main', {
         {
             id: 'card-0',
             xtype: 'step0',
-            reference: 'step0'/*,
-         listeners: {
-         navigate: 'doCardNavigation',
-         scope: 'controller'
-         }*/
+            reference: 'step0'
         },
         {
             id: 'card-1',
             xtype: 'step1',
-            reference: 'step1'/*,
-         listeners: {
-         navigate: 'doCardNavigation',
-         scope: 'controller'
-         }*/
+            reference: 'step1',
+            listeners: {
+                navigate: 'doCardNavigation',
+                scope: 'controller'
+            }
         },
         {
             id: 'card-2',
             xtype: 'step2',
-            reference: 'step2'/*,
-         listeners: {
-         navigate: 'doCardNavigation',
-         scope: 'controller'
-         }*/
+            reference: 'step2',
+            listeners: {
+                navigate: 'doCardNavigation',
+                scope: 'controller'
+            }
         },
         {
             id: 'card-3',
@@ -100,66 +98,10 @@ Ext.define('MedarbApp.view.main.Main', {
     ],
 
     showNext: function () {
-        this.validateCard(1);
+        this.fireEvent('navigateForward', this);
     },
 
     showPrevious: function (btn) {
-        this.validateCard(-1);
-    },
-
-    validateCard: function (incr) {
-        var me = this;
-        var l = me.getLayout();
-        var i = l.activeItem.id.split('card-')[1];
-        switch (i) {
-            case '0':
-                if (incr === 1) {
-                    me.fireEvent('verifyUser', me);
-                }
-                break;
-            case '1':
-                this.down('[xtype=step1]').on('navigate', me.doCardNavigation, me);
-                if (incr === 1) {
-                    me.down('[xtype=step1]').validateFields(incr);
-                } else {
-                    me.doCardNavigation(me.down('[xtype=step1]'), incr);
-                }
-                break;
-            case '2':
-                this.down('[xtype=step2]').on('navigate', me.doCardNavigation, me);
-                if (incr === 1) {
-                    me.down('[xtype=step2]').validateFields(incr);
-                } else {
-                    me.doCardNavigation(me.down('[xtype=step2]'), incr);
-                }
-                break;
-            case '3':
-                if (incr === 1) {
-                    me.down('[xtype=step3]').validateFields(incr);
-                } else {
-                    me.doCardNavigation(me.down('[xtype=step3]'), incr);
-                }
-                break;
-            case
-            '4': break;
-        }
-    }
-    ,
-
-    doCardNavigation: function (card, incr) {
-        var me = this;
-        var l = me.getLayout();
-        var i = l.activeItem.id.split('card-')[1];
-        var next = parseInt(i, 10) + incr;
-        if (next < 0 || next > 4) {
-            return;
-        }
-        l.setActiveItem(next);
-        if (l.getActiveItem().down('[itemId=firstField]')) { //focus on first field in question set.
-            l.getActiveItem().down('[itemId=firstField]').focus(true);
-        }
-        me.down('#card-prev').setDisabled(next === 0);
-        me.down('#card-prev').setDisabled(next === 4);
-        me.down('#card-next').setDisabled(next === 4);
+        this.fireEvent('navigateBackward', this);
     }
 });

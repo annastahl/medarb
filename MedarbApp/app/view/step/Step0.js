@@ -79,7 +79,7 @@ Ext.define('MedarbApp.view.step.Step0', {
                 items: [
                     {
                         html: '<h2>Samverkansprofil</h2>' +
-                        '<p>Föreliggande personanalys är ett hjälpmedel, som skall underlätta förståelsen av oss jälva och våra relationer ' +
+                        '<p>Föreliggande personanalys är ett hjälpmedel, som skall underlätta förståelsen av oss själva och våra relationer ' +
                         'med vår omgivning.</p>' +
                         '<p></p>' +
                         '<p>Om vi ges ökad förståelse för vårt eget och andras beteende, skapas samtidigt förusättningar för framgångsrik ' +

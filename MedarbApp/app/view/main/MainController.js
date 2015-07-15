@@ -89,6 +89,50 @@ Ext.define('MedarbApp.view.main.MainController', {
         });
     },
 
+    onNavigateForward: function () {
+        this.validateCardAndNavigate(1);
+    },
+
+    onNavigateBackward: function () {
+        this.validateCardAndNavigate(-1);
+    },
+
+    validateCardAndNavigate: function (incr) {
+        var me = this, main = me.getView();
+        var l = main.getLayout();
+        var i = l.activeItem.id.split('card-')[1];
+        switch (i) {
+            case '0':
+                if (incr === 1) {
+                    me.onVerifyUser();
+                }
+                break;
+            case '1':
+                if (incr === 1) {
+                    me.lookupReference('step1').validateFields(incr);
+                } else {
+                    me.doCardNavigation(me.lookupReference('step1'), incr);
+                }
+                break;
+            case '2':
+                if (incr === 1) {
+                    me.lookupReference('step2').validateFields(incr);
+                } else {
+                    me.doCardNavigation(me.lookupReference('step2'), incr);
+                }
+                break;
+            case '3':
+                if (incr === 1) {
+                    me.lookupReference('step3').validateFields(incr);
+                } else {
+                    me.doCardNavigation(me.lookupReference('step3'), incr);
+                }
+                break;
+            case
+            '4':
+                break;
+        }
+    },
 
     doCardNavigation: function (card, incr) {
         var me = this;
