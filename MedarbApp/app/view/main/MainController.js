@@ -35,7 +35,6 @@ Ext.define('MedarbApp.view.main.MainController', {
                 if (resp.success) {
                     me.doCardNavigation(null, 1);
                 } else {
-                    me.doCardNavigation(null, 1); // TODO: remove
                     Ext.Msg.show({
                         title: 'Felmeddelande',
                         msg: resp.message,
