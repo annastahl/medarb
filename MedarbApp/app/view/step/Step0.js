@@ -8,7 +8,7 @@
 Ext.define('MedarbApp.view.step.Step0', {
     extend: 'Ext.panel.Panel',
     layout: 'border',
-
+    flex: 1,
     xtype: 'step0',
 
     controller: 'main',
@@ -52,60 +52,45 @@ Ext.define('MedarbApp.view.step.Step0', {
      ************************************************************************/
     startApp: function (config) {
         var me = this;
-        me.fireEvent('verifyUser',me);
+        me.fireEvent('verifyUser', me);
 
     },
 
 
     buildQuestions: function () {
         this.items = [
+
             {
                 xtype: 'container',
-                region: 'west',
-                style: {"background-color": 'white'},
-                width: 250
-            },
-            {
-                xtype: 'form',
                 flex: 1,
-                layout: {
-                    type: 'vbox',
-                    align: 'stretch'
-                },
+               // width: 650,
                 scrollable: true,
                 style: {"background-color": 'white'},
 
-                region: 'center',
-                items: [
-                    {
-                        html: '<h2>Samverkansprofil</h2>' +
-                        '<p>Föreliggande personanalys är ett hjälpmedel, som skall underlätta förståelsen av oss själva och våra relationer ' +
-                        'med vår omgivning.</p>' +
-                        '<p></p>' +
-                        '<p>Om vi ges ökad förståelse för vårt eget och andras beteende, skapas samtidigt förusättningar för framgångsrik ' +
-                        'kommunikation med andra människor.</p>' +
-                        '<p></p>' +
-                        '<p>Genom att vara flexibel och anpassa sitt eget agerande till hur andra vill bli bemötta, ökar man sitt förtroende ' +
-                        'och därigenom sina möjligheter att komma överens och nå samförstånd.</p>' +
-                        '<p></p>' +
-                        '<p>Besvara enkäten genom att fylla i de svar som Du först känner som de rätta.</p>' +
-                        '<p></p>' +
-                        '<p>Utgå från hur Du är som person, och inte efter vad Du vill vara, hört andra säga att Du är eller efter vilka ' +
-                        'roller Du eventuellt getts i vänkretsen, på arbetsplatsen eller hemma.</p>' +
-                        '<p></p>' +
-                        '<p>Försök att vara så uppriktig som möjligt. Det finns inga "bra" eller "dåliga" svar.</p>' +
-                        '<p></p>' +
-                        '<p>Enkäten tar cirka 20 minuter att fylla i.</p>' +
-                        '<p></p>' +
-                        '<p>Undvik både att hoppa över något avsnitt, och att gå tillbaka för att korrigera.</p>' +
-                        '<p></p>' +
-                        '<p>Besvara enkäten från början till slut, i Din egen takt.</p>' +
-                        '<p></p>' +
-                        '<p>Välj Nästa för att starta testet.</p>',
-
-                        margin: '0 0 20 0'
-                    }
-                ]
+                html: '<h2>Samverkansprofil</h2>' +
+                '<p>F&#246;religgande personanalys &#228;r ett hj&#228;lpmedel, som skall underl&#228;tta f&#246;rst&#229;elsen av oss sj&#228;lva och v&#229;ra relationer ' +
+                'med v&#229;r omgivning.</p>' +
+                '<p></p>' +
+                '<p>Om vi ges &#246;kad f&#246;rst&#229;else f&#246;r v&#229;rt eget och andras beteende, skapas samtidigt f&#246;rus&#228;ttningar f&#246;r framg&#229;ngsrik ' +
+                'kommunikation med andra m&#228;nniskor.</p>' +
+                '<p></p>' +
+                '<p>Genom att vara flexibel och anpassa sitt eget agerande till hur andra vill bli bem&#246;tta, &#246;kar man sitt f&#246;rtroende ' +
+                'och d&#228;rigenom sina m&#246;jligheter att komma &#246;verens och n&#229; samf&#246;rst&#229;nd.</p>' +
+                '<p></p>' +
+                '<p>Besvara enk&#228;ten genom att fylla i de svar som Du f&#246;rst k&#228;nner som de r&#228;tta.</p>' +
+                '<p></p>' +
+                '<p>Utg&#229; fr&#229;n hur Du &#228;r som person, och inte efter vad Du vill vara, h&#246;rt andra s&#228;ga att Du &#228;r eller efter vilka ' +
+                'roller Du eventuellt getts i v&#228;nkretsen, p&#229; arbetsplatsen eller hemma.</p>' +
+                '<p></p>' +
+                '<p>F&#246;rs&#246;k att vara s&#229; uppriktig som m&#246;jligt. Det finns inga "bra" eller "d&#229;liga" svar.</p>' +
+                '<p></p>' +
+                '<p>Enk&#228;ten tar cirka 20 minuter att fylla i.</p>' +
+                '<p></p>' +
+                '<p>Undvik b&#229;de att hoppa &#246;ver n&#229;got avsnitt, och att g&#229; tillbaka f&#246;r att korrigera.</p>' +
+                '<p></p>' +
+                '<p>Besvara enk&#228;ten fr&#229;n b&#246;rjan till slut, i Din egen takt.</p>' +
+                '<p></p>' +
+                '<p>V&#228;lj N&#228;sta f&#246;r att starta testet.</p>'
             }];
     }
 });

@@ -57,35 +57,49 @@ Ext.define('MedarbApp.view.main.MainController', {
 
     onSendResult: function () {
         var me = this, xmlTotal = '';
-        var xml1 = this.lookupReference('step1').xml;
-        var xml2 = this.lookupReference('step2').xml;
-        var xml3 = this.lookupReference('step3').xml;
-        xmlTotal = xml1 + xml2 + xml3;
 
-        Ext.Ajax.request({
-            url: '/SOA?service=SPT1000',
-            method: 'post',
-            params: {
-                _method: 'create',
-                _format: 'json',
-                usr: me.usrId,
-                xml: xmlTotal
-            },
-            scope: this,
-            success: function (response, options) {
-                var resp = Ext.decode(response.responseText);
-                if (resp.success) {
-                    me.doCardNavigation(null, 1);
-                } else {
-                    Ext.Msg.show({
-                        title: 'Felmeddelande',
-                        msg: resp.message,
-                        icon: Ext.Msg.ERROR,
-                        buttons: Ext.Msg.OK
+        Ext.Msg.show({
+            title: 'Information',
+            msg: 'Resultatet kommer att skickas in. Vill du fortsätta?',
+            icon: Ext.Msg.ERROR,
+            buttons: Ext.Msg.OKCANCEL,
+            fn: function(btn) {
+                if (btn === 'ok') {
+                    var xml1 = me.lookupReference('step1').xml;
+                    var xml2 = me.lookupReference('step2').xml;
+                    var xml3 = me.lookupReference('step3').xml;
+                    xmlTotal = xml1 + xml2 + xml3;
+
+                    Ext.Ajax.request({
+                        url: '/SOA?service=SPT1000',
+                        method: 'post',
+                        params: {
+                            _method: 'create',
+                            _format: 'json',
+                            usr: me.usrId,
+                            xml: xmlTotal
+                        },
+                        scope: me,
+                        success: function (response, options) {
+                            var resp = Ext.decode(response.responseText);
+                            if (resp.success) {
+                                me.doCardNavigation(null, 1);
+                            } else {
+                                Ext.Msg.show({
+                                    title: 'Felmeddelande',
+                                    msg: resp.message,
+                                    icon: Ext.Msg.ERROR,
+                                    buttons: Ext.Msg.OK
+                                });
+                            }
+                        }
                     });
+                } else if (btn === 'cancel') {
+                    return;
                 }
             }
         });
+
     },
 
     onNavigateForward: function () {

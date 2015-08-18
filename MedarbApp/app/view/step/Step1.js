@@ -61,12 +61,12 @@ Ext.define('MedarbApp.view.step.Step1', {
 
     buildQuestions: function () {
         this.items = [
-            {
+          /*  {
                 xtype: 'container',
                 region: 'west',
                 style: {"background-color": 'white'},
                 width: 250
-            },
+            },*/
             {
                 xtype: 'form',
                 flex: 1,
@@ -82,22 +82,22 @@ Ext.define('MedarbApp.view.step.Step1', {
                     {
                         html: '<h2>Del 1</h2>' +
                         '<p><b><h3>Instruktion</h3></b></p>' +
-                        '<p><i>Fördela 4 poäng på varje påståendepar på något av följande sätt:</i></p>' +
+                        '<p><i>F&#246;rdela 4 po&#228;ng p&#229; varje p&#229;st&#229;endepar p&#229; n&#229;got av f&#246;ljande s&#228;tt:</i></p>' +
                         '<table><tr><td style="width:80px">' +
-                        '<p><i>     (a) 4 (b) 0</i></p></td><td><p><i>Om (a)-alternativet nästa alltid stämmer</i></p>' +
+                        '<p><i>     (a) 4 (b) 0</i></p></td><td><p><i>Om (a)-alternativet n&#228;sta alltid st&#228;mmer</i></p>' +
                         '</td></tr><tr><td>' +
-                        '<p><i>(a) 3 (b) 1</i></p></td><td><p><i>Om (a)-alternativet stämmer, men med stor tvekan</i></p>' +
+                        '<p><i>(a) 3 (b) 1</i></p></td><td><p><i>Om (a)-alternativet st&#228;mmer, men med stor tvekan</i></p>' +
                         '</td></tr><tr><td>' +
-                        '<p><i>(a) 1 (b) 3</i></p></td><td><p><i>Om (b)-alternativet stämmer, men med stor tvekan</i></p>' +
+                        '<p><i>(a) 1 (b) 3</i></p></td><td><p><i>Om (b)-alternativet st&#228;mmer, men med stor tvekan</i></p>' +
                         '</td></tr><tr><td>' +
-                        '<p><i>(a) 0 (b) 4</i></p></td><td><p><i>Om (b)-alternativet nästa alltid stämmer</i></p>' +
+                        '<p><i>(a) 0 (b) 4</i></p></td><td><p><i>Om (b)-alternativet n&#228;sta alltid st&#228;mmer</i></p>' +
                         '</td></tr><tr><td>' +
                         '</table>' +
-                        '<p><i>Observera att högst poäng ges det alternativ som bäst överensstämmer med Din uppfattning om Dig själv.</i></p>',
+                        '<p><i>Observera att h&#246;gst po&#228;ng ges det alternativ som b&#228;st &#246;verensst&#228;mmer med Din uppfattning om Dig sj&#228;lv.</i></p>',
                         margin: '0 0 20 0'
                     },
                     {
-                        html: '<p><b><h3>Frågor</h3></b></p>'
+                        html: '<p><b><h3>Fr&#229;gor</h3></b></p>'
                     },
                     this.qSet1(),
                     this.qSet2(),
@@ -168,7 +168,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag är lätt att lära känna'
+                            value: 'a) Jag &#228;r l&#228;tt att l&#228;ra k&#228;nna'
                         }
                     ]
                 },
@@ -199,7 +199,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Det tar längre tid att lära känna mig',
+                            value: 'b) Det tar l&#228;ngre tid att l&#228;ra k&#228;nna mig',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -242,7 +242,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag är oftast otålig'
+                            value: 'a) Jag &#228;r oftast ot&#229;lig'
                         }
                     ]
                 },
@@ -273,7 +273,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag är oftast tålmodig',
+                            value: 'b) Jag &#228;r oftast t&#229;lmodig',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -316,7 +316,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag gillar att berätta om visioner och möjligheter'
+                            value: 'a) Jag gillar att ber&#228;tta om visioner och m&#246;jligheter'
                         }
                     ]
                 },
@@ -347,7 +347,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag gillar att berätta om erfarenheter och fakta',
+                            value: 'b) Jag gillar att ber&#228;tta om erfarenheter och fakta',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -390,7 +390,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag är oftast aktiv vid förändringar'
+                            value: 'a) Jag &#228;r oftast aktiv vid f&#246;r&#228;ndringar'
                         }
                     ]
                 },
@@ -421,7 +421,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag är oftast avvaktande vid förändringar',
+                            value: 'b) Jag &#228;r oftast avvaktande vid f&#246;r&#228;ndringar',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -464,7 +464,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag tycker bäst om att arbeta tillsamans med andra'
+                            value: 'a) Jag tycker b&#228;st om att arbeta tillsamans med andra'
                         }
                     ]
                 },
@@ -495,7 +495,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag tycker bäst om att arbeta ensam',
+                            value: 'b) Jag tycker b&#228;st om att arbeta ensam',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -538,7 +538,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag är snabb och spontan i mitt handlande'
+                            value: 'a) Jag &#228;r snabb och spontan i mitt handlande'
                         }
                     ]
                 },
@@ -569,7 +569,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag är lugn och försiktig i mitt handlande',
+                            value: 'b) Jag &#228;r lugn och f&#246;rsiktig i mitt handlande',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -612,7 +612,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) I diskussioner får jag ofta associationer som gör att jag byter ämne'
+                            value: 'a) I diskussioner f&#229;r jag ofta associationer som g&#246;r att jag byter &#228;mne'
                         }
                     ]
                 },
@@ -643,7 +643,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) I diskussion håller jag mig oftast till ämnet',
+                            value: 'b) I diskussion h&#229;ller jag mig oftast till &#228;mnet',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -686,7 +686,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag tänjer ofta på regler och policies'
+                            value: 'a) Jag t&#228;njer ofta p&#229; regler och policies'
                         }
                     ]
                 },
@@ -717,7 +717,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag följer oftast regler och policies',
+                            value: 'b) Jag f&#246;ljer oftast regler och policies',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -791,7 +791,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag vill helst hålla mig till ett uppgjort tidsprogram',
+                            value: 'b) Jag vill helst h&#229;lla mig till ett uppgjort tidsprogram',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -865,7 +865,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag tar oftast god tid på ig för att fatta beslut',
+                            value: 'b) Jag tar oftast god tid p&#229; ig f&#246;r att fatta beslut',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -908,7 +908,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag håller gärna om, skakar hand med och klappar om andra'
+                            value: 'a) Jag h&#229;ller g&#228;rna om, skakar hand med och klappar om andra'
                         }
                     ]
                 },
@@ -1014,7 +1014,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag gestikulerar sällan',
+                            value: 'b) Jag gestikulerar s&#228;llan',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1058,7 +1058,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag föredrar avspända och djupa relationer'
+                            value: 'a) Jag f&#246;redrar avsp&#228;nda och djupa relationer'
                         }
                     ]
                 },
@@ -1089,7 +1089,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag föredrar att hålla en viss distans till andra',
+                            value: 'b) Jag f&#246;redrar att h&#229;lla en viss distans till andra',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1132,7 +1132,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag behåller gärna ögonkontakten länge'
+                            value: 'a) Jag beh&#229;ller g&#228;rna &#246;gonkontakten l&#228;nge'
                         }
                     ]
                 },
@@ -1163,7 +1163,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag undviker helst längre ögonkontakt',
+                            value: 'b) Jag undviker helst l&#228;ngre &#246;gonkontakt',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1206,7 +1206,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag visar mer entusiasm än de flesta'
+                            value: 'a) Jag visar mer entusiasm &#228;n de flesta'
                         }
                     ]
                 },
@@ -1237,7 +1237,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag visar mindre entusiasm än de flesta',
+                            value: 'b) Jag visar mindre entusiasm &#228;n de flesta',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1280,7 +1280,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag pratar gärna i stora grupper'
+                            value: 'a) Jag pratar g&#228;rna i stora grupper'
                         }
                     ]
                 },
@@ -1311,7 +1311,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag pratar ogärna i stora grupper',
+                            value: 'b) Jag pratar og&#228;rna i stora grupper',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1354,7 +1354,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag fattar de flesta beslut baserat på mina känslor'
+                            value: 'a) Jag fattar de flesta beslut baserat p&#229; mina k&#228;nslor'
                         }
                     ]
                 },
@@ -1385,7 +1385,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag fattar de flesta beslut baserat på fakta',
+                            value: 'b) Jag fattar de flesta beslut baserat p&#229; fakta',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1502,7 +1502,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag visar öppet glädje, sorg, förvirring och andra känslor'
+                            value: 'a) Jag visar &#246;ppet gl&#228;dje, sorg, f&#246;rvirring och andra k&#228;nslor'
                         }
                     ]
                 },
@@ -1533,7 +1533,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag visar sällan mina känslor öppet',
+                            value: 'b) Jag visar s&#228;llan mina k&#228;nslor &#246;ppet',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1576,7 +1576,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag talar ofta högt när jag är irriterad'
+                            value: 'a) Jag talar ofta h&#246;gt n&#228;r jag &#228;r irriterad'
                         }
                     ]
                 },
@@ -1607,7 +1607,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag talar ofta lugnt, även när jag är irriterad',
+                            value: 'b) Jag talar ofta lugnt, &#228;ven n&#228;r jag &#228;r irriterad',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1650,7 +1650,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag  lyssnar gärna när någon berättar om personliga känslor'
+                            value: 'a) Jag  lyssnar g&#228;rna n&#228;r n&#229;gon ber&#228;ttar om personliga k&#228;nslor'
                         }
                     ]
                 },
@@ -1681,7 +1681,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag lyssnar gärna på faktabaserade berättelser',
+                            value: 'b) Jag lyssnar g&#228;rna p&#229; faktabaserade ber&#228;ttelser',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1725,7 +1725,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Vid en diskussion om mindre viktiga frågor, argumenterar jag ofta för sakens  egen skull'
+                            value: 'a) Vid en diskussion om mindre viktiga fr&#229;gor, argumenterar jag ofta f&#246;r sakens  egen skull'
                         }
                     ]
                 },
@@ -1756,7 +1756,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Vid en diskussion om mindre viktiga frågor, håller jag hellre med än argumenterar emot',
+                            value: 'b) Vid en diskussion om mindre viktiga fr&#229;gor, h&#229;ller jag hellre med &#228;n argumenterar emot',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1800,7 +1800,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag är oftast avslappnad tillsammans med nya människor'
+                            value: 'a) Jag &#228;r oftast avslappnad tillsammans med nya m&#228;nniskor'
                         }
                     ]
                 },
@@ -1831,7 +1831,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag är oftast lite stel och formell tillsammans med nya människor',
+                            value: 'b) Jag &#228;r oftast lite stel och formell tillsammans med nya m&#228;nniskor',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1874,7 +1874,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag är ofta kontrollerande och styrande'
+                            value: 'a) Jag &#228;r ofta kontrollerande och styrande'
                         }
                     ]
                 },
@@ -1905,7 +1905,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag är ofta diplomatisk och kompromissvillig',
+                            value: 'b) Jag &#228;r ofta diplomatisk och kompromissvillig',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -1948,7 +1948,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag känner mig fångad i fasta rutiner'
+                            value: 'a) Jag k&#228;nner mig f&#229;ngad i fasta rutiner'
                         }
                     ]
                 },
@@ -2022,7 +2022,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag är rättfram och talar om vad jag anser, oavsett omgivningens åsikter'
+                            value: 'a) Jag &#228;r r&#228;ttfram och talar om vad jag anser, oavsett omgivningens &#229;sikter'
                         }
                     ]
                 },
@@ -2053,7 +2053,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag avstår ofta från att bidraga med åsikter vid möten',
+                            value: 'b) Jag avst&#229;r ofta fr&#229;n att bidraga med &#229;sikter vid m&#246;ten',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -2096,7 +2096,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag tar oftast den första kontakten med nya människor'
+                            value: 'a) Jag tar oftast den f&#246;rsta kontakten med nya m&#228;nniskor'
                         }
                     ]
                 },
@@ -2127,7 +2127,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag låter gärna andra ta den första kontakten',
+                            value: 'b) Jag l&#229;ter g&#228;rna andra ta den f&#246;rsta kontakten',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -2170,7 +2170,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'a) Jag är ofta otålig och konkurrensvillig'
+                            value: 'a) Jag &#228;r ofta ot&#229;lig och konkurrensvillig'
                         }
                     ]
                 },
@@ -2201,7 +2201,7 @@ Ext.define('MedarbApp.view.step.Step1', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'b) Jag är ofta lugn och samarbetsvillig',
+                            value: 'b) Jag &#228;r ofta lugn och samarbetsvillig',
                             style: {"margin-bottom": '15px'}
                         }
                     ]
@@ -2249,7 +2249,6 @@ Ext.define('MedarbApp.view.step.Step1', {
                     if (result[i] && result[i] !== '' && result[i] !== null) {
                         this.xml += '<alt2>' + result[i] + '</alt2>';
                     }
-                    console.log(question + ' tot ' + total);
                     if (total !== 4) {
                         if (msg !== '') {
                             msg += ', ' + question;
@@ -2267,12 +2266,11 @@ Ext.define('MedarbApp.view.step.Step1', {
         if (msg !== '') {
             Ext.Msg.show({
                 title: 'Felmeddelande',
-                msg: 'Totalen är fel på följande frågor: ' + msg,
+                msg: 'Totalen &#228;r fel p&#229; f&#246;ljande fr&#229;gor: ' + msg,
                 icon: Ext.Msg.ERROR,
                 buttons: Ext.Msg.OK
             });
         } else {
-            console.log('success 1');
             this.fireEvent('navigate', this, incr);
         }
     }

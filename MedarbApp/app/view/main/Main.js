@@ -23,8 +23,8 @@ Ext.define('MedarbApp.view.main.Main', {
         background: '#ffffff'
     },
     xtype: 'app-main',
-    padding: '10 100 10 100',
 
+    padding: '10 400 10 200',
     controller: 'main',
     viewModel: {
         type: 'main'
@@ -41,22 +41,23 @@ Ext.define('MedarbApp.view.main.Main', {
         scope: 'controller'
     },
 
-    bbar: ['->',
-        {
-            itemId: 'card-prev',
-            text: '&laquo; Föregående',
-            handler: 'showPrevious',
-            disabled: true
-        },
-        {
-            itemId: 'card-next',
-            text: 'Nästa &raquo;',
-            handler: 'showNext'
-        },
-        ' ',
-        ' ',
-        ' '
-    ],
+    /* bbar: [
+     '->',
+     {
+     itemId: 'card-prev',
+     text: '&laquo; F&#246;reg&#229;ende',
+     handler: 'showPrevious',
+     disabled: true
+     },
+     {
+     itemId: 'card-next',
+     text: 'N&#228;sta &raquo;',
+     handler: 'showNext'
+     },
+     ' ',
+     ' ',
+     ' '
+     ],*/
 
     items: [
         {
@@ -94,6 +95,47 @@ Ext.define('MedarbApp.view.main.Main', {
         {
             id: 'card-4',
             xtype: 'step4'
+        }
+    ],
+
+    dockedItems: [
+        {
+            dock: 'left',
+            items: [
+                {
+                    margin: '10 20 0 0',
+                    xtype: 'image',
+                    src: 'resources/images/orango_kompakt.jpg',
+                    width: 100
+                }
+            ]
+        },
+        {
+            dock: 'bottom',
+            xtype: 'toolbar',
+            width: 900,
+            height: 50,
+            layout: {
+                type: 'hbox',
+                pack: 'end'
+            },
+            items: [
+             //   '->',
+                {
+                    xtype: 'button',
+                    itemId: 'card-prev',
+                    text: '&laquo; F&#246;reg&#229;ende',
+                    handler: 'showPrevious',
+                    disabled: true,
+                    margin: '0 10 0 0'
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'card-next',
+                    text: 'N&#228;sta &raquo;',
+                    handler: 'showNext'
+                }
+            ]
         }
     ],
 

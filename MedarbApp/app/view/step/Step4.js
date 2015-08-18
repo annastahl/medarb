@@ -57,12 +57,12 @@ Ext.define('MedarbApp.view.step.Step4', {
 
     buildQuestions: function () {
         this.items = [
-            {
+           /* {
                 xtype: 'container',
                 region: 'west',
                 style: {"background-color": 'white'},
                 width: 250
-            },
+            },*/
             {
                 xtype: 'form',
                 flex: 1,
@@ -76,8 +76,8 @@ Ext.define('MedarbApp.view.step.Step4', {
                 region: 'center',
                 items: [
                     {
-                        html: '<h2>Slutfört</h2>' +
-                        '<p>Resultatet är nu inskickat.</p>',
+                        html: '<h2>Slutf&#246;rt</h2>' +
+                        '<p>Resultatet &#228;r nu inskickat.</p>',
                         margin: '0 0 20 0'
                     }
                 ]

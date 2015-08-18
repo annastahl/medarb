@@ -57,12 +57,12 @@ Ext.define('MedarbApp.view.step.Step3', {
 
         buildQuestions: function () {
             this.items = [
-                {
+/*                {
                     xtype: 'container',
                     region: 'west',
                     style: {"background-color": 'white'},
                     width: 250
-                },
+                },*/
                 {
                     xtype: 'form',
                     flex: 1,
@@ -78,12 +78,12 @@ Ext.define('MedarbApp.view.step.Step3', {
                         {
                             html: '<h2>Del 3</h2>' +
                             '<p><b><h3>Instruktion</h3></b></p>' +
-                            '<p><i>Välj ut ett påstående, i respektive grupp, som bäst passar in på Dig och tilldela detta 4 poäng,</i></p>' +
-                            '<p><i>samt välj ut ett påstående som delvis passar in på Dig och tilldela detta 3 poäng.</i></p>',
+                            '<p><i>V&#228;lj ut ett p&#229;st&#229;ende, i respektive grupp, som b&#228;st passar in p&#229; Dig och tilldela detta 4 po&#228;ng,</i></p>' +
+                            '<p><i>samt v&#228;lj ut ett p&#229;st&#229;ende som delvis passar in p&#229; Dig och tilldela detta 3 po&#228;ng.</i></p>',
                             margin: '0 0 20 0'
                         },
                         {
-                            html: '<p><b><h3>Frågor</h3></b></p>'
+                            html: '<p><b><h3>Fr&#229;gor</h3></b></p>'
                         },
                         this.qSet35(),
                         this.qSet36()
@@ -158,7 +158,7 @@ Ext.define('MedarbApp.view.step.Step3', {
                             },
                             {
                                 xtype: 'displayfield',
-                                value: 'b) Jag vill oftast att det skall hända något'
+                                value: 'b) Jag vill oftast att det skall h&#228;nda n&#229;got'
                             }
                         ]
                     },
@@ -188,7 +188,7 @@ Ext.define('MedarbApp.view.step.Step3', {
                             },
                             {
                                 xtype: 'displayfield',
-                                value: 'c) Jag är impulsiv'
+                                value: 'c) Jag &#228;r impulsiv'
                             }
                         ]
                     },
@@ -219,7 +219,7 @@ Ext.define('MedarbApp.view.step.Step3', {
                             },
                             {
                                 xtype: 'displayfield',
-                                value: 'd) Jag är en ordningsmänniska',
+                                value: 'd) Jag &#228;r en ordningsm&#228;nniska',
                                 style: {"margin-bottom": '15px'}
                             }
                         ]
@@ -262,7 +262,7 @@ Ext.define('MedarbApp.view.step.Step3', {
                             },
                             {
                                 xtype: 'displayfield',
-                                value: 'a) Jag är ingen tävlingsmänniska'
+                                value: 'a) Jag &#228;r ingen t&#228;vlingsm&#228;nniska'
                             }
                         ]
                     },
@@ -293,7 +293,7 @@ Ext.define('MedarbApp.view.step.Step3', {
                             },
                             {
                                 xtype: 'displayfield',
-                                value: 'b) Jag är beslutsam'
+                                value: 'b) Jag &#228;r beslutsam'
                             }
                         ]
                     },
@@ -323,7 +323,7 @@ Ext.define('MedarbApp.view.step.Step3', {
                             },
                             {
                                 xtype: 'displayfield',
-                                value: 'c) Jag är en sällskapsmänniska'
+                                value: 'c) Jag &#228;r en s&#228;llskapsm&#228;nniska'
                             }
                         ]
                     },
@@ -354,7 +354,7 @@ Ext.define('MedarbApp.view.step.Step3', {
                             },
                             {
                                 xtype: 'displayfield',
-                                value: 'd Jag är realistisk',
+                                value: 'd Jag &#228;r realistisk',
                                 style: {"margin-bottom": '15px'}
                             }
                         ]
@@ -417,7 +417,6 @@ Ext.define('MedarbApp.view.step.Step3', {
                         }
                         // verify total and that 3 and 4 is set.
                         //         debugger;
-                        console.log(question + ' tot ' + total);
                         if (total !== 7 || !threefound || !fourfound) {
                             if (msg !== '') {
                                 msg += ', ' + question;
@@ -439,12 +438,11 @@ Ext.define('MedarbApp.view.step.Step3', {
             if (msg !== '') {
                 Ext.Msg.show({
                     title: 'Felmeddelande',
-                    msg: 'Totalen är fel på följande frågor: ' + msg,
+                    msg: 'Totalen &#228;r fel p&#229; f&#246;ljande fr&#229;gor: ' + msg,
                     icon: Ext.Msg.ERROR,
                     buttons: Ext.Msg.OK
                 });
             } else {
-                console.log('success 3');
                 this.fireEvent('sendResult', this, incr);
             }
         }
