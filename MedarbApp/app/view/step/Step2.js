@@ -604,7 +604,7 @@ Ext.define('MedarbApp.view.step.Step2', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'c) Jag &#228;r idérik'
+                            value: 'c) Jag &#228;r id&eacute;rik'
                         }
                     ]
                 },
@@ -740,7 +740,7 @@ Ext.define('MedarbApp.view.step.Step2', {
                         },
                         {
                             xtype: 'displayfield',
-                            value: 'c) Jag f&#229;r ofta med mig andra p&#229; mina idéer'
+                            value: 'c) Jag f&#229;r ofta med mig andra p&#229; mina id&eacute;er'
                         }
                     ]
                 },
