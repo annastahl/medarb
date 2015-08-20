@@ -2212,7 +2212,7 @@ Ext.define('MedarbApp.view.step.Step1', {
 
     validateFields: function (incr) {
         var form = this.down('form').getForm();
-        var total = 0, msg = '', question = 0, count = 0, value = 0, mod = 0;
+        var total = 0, msg = '', question = 1, count = 0, value = 0, mod = 0;
         var fieldNames = form.getFields().items;
         this.xml = '';
         var result = [];
