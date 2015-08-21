@@ -2251,9 +2251,9 @@ Ext.define('MedarbApp.view.step.Step1', {
                     }
                     if (total !== 4) {
                         if (msg !== '') {
-                            msg += ', ' + question;
+                            msg += ', ' + (question-1);
                         } else {
-                            msg += question;
+                            msg += (question-1);
                         }
                     }
                     count = 1;
